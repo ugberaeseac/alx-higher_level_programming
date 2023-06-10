@@ -3,8 +3,8 @@
 def element_at(my_list, idx):
     count = len(my_list)
     if (idx < 0):
-        return (None)
+        return None
     elif (idx > count):
-        return (None)
+        return None
     else:
         return (my_list[idx])
