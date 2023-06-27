@@ -3,7 +3,6 @@
 an empty class that defines a square"""
 
 
-
 class Square:
-    """ defines empty class"
+    """ defines empty class"""
     pass
