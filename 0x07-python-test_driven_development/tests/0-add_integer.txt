@@ -1,0 +1,92 @@
+# To test, run python3 -m doctest -v tests/0-add_integer.txt
+
+
+IMPORT THE MODULE:
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+SUCCESS CASES:
+
+Test for integers and floats (signed and unsigned):
+==================================================
+>>> print(add_integer(4, 6))
+10
+>>> print(add_integer(2.7, 40))
+42
+>>> print(add_integer(-3, 16))
+13
+>>> print(add_integer(100.3, -2))
+98
+>>> print(add_integer(5))
+103
+
+
+FAILED CASES:
+
+Test for TypeErrors:
+====================
+check when a string is passed as an argument
+>>> print(add_integer("ALX", 8))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> print(add_integer(12, "10"))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+check when more than two arguments is passed to add_integer()
+>>> print(add_integer(6, 2, 78))
+Traceback (most recent call last):
+...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+check when no argument is passed
+>>> print(add_integer())
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+check when None is passed to one or both arguments
+>>> print(add_integer(None))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> print(add_integer(None, None))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+check when a list or tuple is passed as an argument to add_integer()
+>>> print(add_integer(5, (1, 2, 3)))
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> print(add_integer([3, 7, 19], 2))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+
+Test for OverflowErrors:
+=======================
+>>> print(add_integer(float("inf")))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> print(add_integer(float("-inf")))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+
+Test for ValueErrors:
+=====================
+>>> print(add_integer(float("NaN")))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
