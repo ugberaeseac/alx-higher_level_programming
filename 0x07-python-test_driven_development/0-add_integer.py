@@ -7,7 +7,7 @@ Returns an integer: the sum of 'a' and 'b'
 
 
 def add_integer(a, b=98):
-    """ 
+    """
     Adds two integers and return an int
     """
     if type(a) not in [int, float]:
