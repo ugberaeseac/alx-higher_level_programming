@@ -1,0 +1,65 @@
+# Run the test with python3 -m doctest -v tests/3-say_my_name.txt
+
+IMPORT MODULE:
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+
+SUCCESS CASES:
+
+Test for string values:
+======================
+>>> say_my_name("Amowie", "Ugberaese") #doctest: +REPORT_NDIFF
+My name is Amowie Ugberaese
+
+>>> say_my_name("Charles") #doctest: +REPORT_NDIFF
+My name is Charles 
+
+>>> say_my_name("19", "14")
+My name is 19 14
+
+
+FAILED CASES:
+
+Test for TypeErrors:
+===================
+check when a non-string value is passed as argument
+
+>>> say_my_name(100, "Holberton")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name("ALX SE", 2.0)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name(["Amowie", "Charles"], "Ugberaese")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name("Julien", ("Maarten", "Yosef"))
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name(None)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+
+check when more than two arguments is passed to add_integer()
+>>> say_my_name("Amowie", "Charles", "Ugberaese")
+Traceback (most recent call last):
+...
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+
+check when no argument is passed
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
