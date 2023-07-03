@@ -35,13 +35,13 @@ class Rectangle:
         """
         rectangle = ""
         if self.__width == 0 or self.__height == 0:
-            return ""
+            return rectangle
         else:
             for i in range(self.__height):
                 for j in range(self.__width):
                     rectangle += "#"
                 rectangle += "\n"
-            return rectangle
+        return rectangle
 
     @property
     def height(self):
