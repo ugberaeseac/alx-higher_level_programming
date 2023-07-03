@@ -34,12 +34,13 @@ class Rectangle:
         returns an informal string representation of the rectangle
         """
         rectangle = ""
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return rectangle
         else:
-            for i in range(self.__height - 1):
-                rectangle += "#" * self.__width + "\n"
-            rectangle += "#"
+            for i in range(self.height):
+                for j in range(self.width):
+                    rectangle += "#"
+                rectangle += "\n"
         return rectangle
 
     @property
