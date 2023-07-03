@@ -37,10 +37,9 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return rectangle
 
-        for i in range(self.height):
-            for j in range(self.width):
-                rectangle += "#"
-            rectangle += "\n"
+        for i in range(self.height - 1):
+            rectangle += "#" * self.width + "\n"
+        rectangle += "#" * self.width
         return rectangle
 
     @property
