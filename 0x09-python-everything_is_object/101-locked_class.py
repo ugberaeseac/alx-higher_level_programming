@@ -8,8 +8,8 @@ that prevents the user from dynamically creating new instance attributes
 
 class LockedClass():
     """
-    prevent dynamically created instances 
-    except instance attribute is 'first_name'
+    prevent dynamically created instances except
+    instance attribute is 'first_name'
     """
 
     __slots__ = "first_name"
