@@ -7,7 +7,7 @@ from dynamically creating new instance attributes except first_name
 """
 
 
-class LockedClass:
+class LockedClass():
     """
     prevent dynamically created instances except 'first_name'
     """
