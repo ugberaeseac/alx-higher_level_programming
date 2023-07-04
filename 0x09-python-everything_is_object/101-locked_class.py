@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 class LockedClass:
     """
     prevent dynamically created instances except 'first_name' """
