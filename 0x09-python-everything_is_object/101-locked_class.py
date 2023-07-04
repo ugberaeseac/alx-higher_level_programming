@@ -6,6 +6,7 @@ class with no object attribute that prevents user
 from dynamically creating new instance attributes except first_name
 """
 
+
 class LockedClass:
     """
     prevent dynamically created instances
