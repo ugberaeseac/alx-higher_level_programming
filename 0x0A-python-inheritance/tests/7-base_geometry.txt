@@ -1,0 +1,78 @@
+#To test, run python3 -m doctest -v tests/7-base_geometry.txt
+
+IMPORT MODULE:
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+TEST CASES:
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("width", 89)
+
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+ValueError: distance must be greater than 0
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", [5])
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", {'key': 46})
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", ("John"))
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", False)
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+>>> bg = BaseGeometry()  
+>>> bg.integer_validator("name")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
