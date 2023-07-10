@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Module: 2-is_kind_of_class
+Module: 3-is_kind_of_class
 Function that returns True if object is an instance of a class
 that inherited from a specified class, else returns False
 """
