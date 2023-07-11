@@ -29,7 +29,9 @@ class Rectangle(BaseGeometry):
     and initializaion of attributes
     """
     def __init__(self, width, height):
-        """ validate and initialize """
+        """
+        validate and initialize
+        """
         super().integer_validator("width", width)
         self.__width = width
         super().integer_validator("height", height)
