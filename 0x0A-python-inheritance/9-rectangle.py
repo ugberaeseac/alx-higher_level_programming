@@ -9,6 +9,7 @@ validates values, computes area and prints magic word
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """
     integer validation of width and height
@@ -27,7 +28,8 @@ class Rectangle(BaseGeometry):
         """
         Return rectangle description : [Rectangle] <width>/<height>
         """
-        return ("[{:s}] {:d}/{:d}".format(self.__class__.__name__, self.__width, self.__height))
+        return ("[{:s}] {:d}/{:d}".format(self.__class__.__name__,
+                                          self.__width, self.__height))
 
     def area(self):
         """
