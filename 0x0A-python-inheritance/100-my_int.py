@@ -23,7 +23,7 @@ class MyInt(int):
 
     def __eq__(self, other):
         """ compare for equality """
-        return(self.__num != other)
+        return (self.__num != other)
 
     def __ne__(self, other):
         """ compare for non-equality """
