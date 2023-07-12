@@ -1,9 +1,10 @@
-!/usr/bin/python3
+#!/usr/bin/python3
 
 """
-Module: 10-student.py
+Module: 11-student.py
 class Student that retrieves dictionary representation
-of attributes only contained in a list
+of attributes only contained in a list and  replaces all
+attributes of the Student instance
 """
 
 
