@@ -14,10 +14,10 @@ class Rectangle(Base):
         """
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -37,7 +37,13 @@ class Rectangle(Base):
         Args:
             value: value of width
         """
-        pass
+        if type(value) not in [int]:
+            raise TypeError('width must be an integer')
+
+        if value <= 0:
+            raise ValueError('width must be > 0')
+
+        self.__width = value
 
     @property
     def height(self):
@@ -57,7 +63,13 @@ class Rectangle(Base):
         Args:
             value: value of height
         """
-        pass
+        if type(value) not in [int]:
+            raise TypeError('height must be an integer')
+
+        if value <= 0:
+            raise ValueError('height must be > 0')
+
+        self.__height = value
 
     @property
     def x(self):
@@ -77,7 +89,13 @@ class Rectangle(Base):
         Args:
             value: value of x-axis
         """
-        pass
+        if type(value) not in [int]:
+            raise TypeError('x must be an integer')
+
+        if value < 0:
+            raise ValueError('x must be >= 0')
+
+        self.__x = value
 
     @property
     def y(self):
@@ -97,4 +115,10 @@ class Rectangle(Base):
         Args:
             value: value of y axis
         """
-        pass
+        if type(value) not in [int]:
+            raise TypeError('y must be an integer')
+
+        if value < 0:
+            raise ValueError('y must be >= 0')
+
+        self.__y = value
