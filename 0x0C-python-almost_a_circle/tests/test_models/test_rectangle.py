@@ -150,3 +150,15 @@ class TestRectangle(unittest.TestCase):
 
         r1.update()
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 4/5 - 2/3")
+
+        """
+        # Test for kwargs (key/value) arguments to attributes
+        """
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        self.assertEqual(r1.__str__(), "[Rectangle] (10) 10/10 - 10/10")
+
+        r1.update(id=20)
+        self.assertEqual(r1.__str__(), "[Rectangle] (20) 10/10 - 10/10")
+
+        r1.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(r1.__str__(), "[Rectangle] (89) 3/1 - 2/10")
