@@ -146,3 +146,12 @@ class Rectangle(Base):
             for cols in range(self.width):
                 print("#", end="")
             print()
+
+    def update(self, *args):
+        """
+        assign argument to each attribute
+        """
+        attribute = [
+                'id', 'width', 'height', 'x', 'y']
+        for index, value in enumerate(args):
+            setattr(self, attribute[index], value)
