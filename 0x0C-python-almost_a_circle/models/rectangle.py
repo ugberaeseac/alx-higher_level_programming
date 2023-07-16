@@ -12,12 +12,21 @@ class Rectangle(Base):
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """
+        initialize attributes
         """
         super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+
+    def __str__(self):
+        """
+        returns an informal string representation of the instance
+        """
+        return ("[{:s}] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+            self.__class__.__name__, self.id, self.x, self.y, self.width,
+            self.height))
 
     @property
     def width(self):

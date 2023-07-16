@@ -115,3 +115,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(Rectangle(2, 10).area(), 20)
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
         self.assertEqual(Rectangle(2, 7, 1, 6).area(), 14)
+
+    def test_str(self):
+        """
+        # Test the __str__ method or str()
+        """
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(r1.__str__(), "[Rectangle] (12) 2/1 - 4/6")
