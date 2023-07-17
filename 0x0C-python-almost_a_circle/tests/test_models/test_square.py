@@ -175,7 +175,7 @@ class TestSquare(unittest.TestCase):
         with StringIO() as output:
             output = StringIO()
             sys.stdout = output
-            s1 = Square(4, 1, 5, 9).display()
+            s1 = Square(4).display()
             sys.stdout = sys.__stdout__
         self.assertEqual(output.getvalue(), "####\n####\n####\n####\n")
 
@@ -201,7 +201,7 @@ class TestSquare(unittest.TestCase):
         # Test for dictionary representation
         """
         s1 = Square(6, 3, 2, 9)
-        s1.todictionary()
+        s1 = s1.to_dictionary()
         self.assertEqual(type(s1), dict)
 
         s2 = Square(1, 3, 0, 1)

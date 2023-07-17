@@ -32,3 +32,22 @@ class TestBase(unittest.TestCase):
         # Ensure type errors are raised when necessary
         """
         self.assertRaises(TypeError, Base, 3, 8)
+
+    def test_to_json_string(self):
+        """
+        # Test for JSON string representation
+        """
+        dic_json = {}
+        d_json = Base.to_json_string([dic_json])
+        self.assertTrue(d_json, "[]")
+
+        dict_json = None
+        di_json = Base.to_json_string([dict_json])
+        self.assertTrue(di_json, "[]")
+
+        dict1 = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        dict2 = {'x': 5, 'y': 1, 'id': 35, 'height': 3, 'width': 6}
+        json_dict = Base.to_json_string([dict1, dict2])
+        self.assertTrue(
+                json_dict, [{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10},
+                    {"x": 5, "y": 1, "id": 35, "height": 3, "width": 6}])

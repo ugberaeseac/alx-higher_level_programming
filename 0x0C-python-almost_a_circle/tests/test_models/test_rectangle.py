@@ -204,8 +204,8 @@ class TestRectangle(unittest.TestCase):
         """
         # Test for dictionary representation
         """
-        r1 = Rectangle(3, 4, 6, 2)
-        r1.todictionary()
+        r1 = Rectangle(3, 4, 6, 2, 1)
+        r1 = r1.to_dictionary()
         self.assertEqual(type(r1), dict)
 
         r2 = Rectangle(1, 3, 0, 1, 4)
