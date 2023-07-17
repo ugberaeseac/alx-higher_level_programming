@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-
+Module: square
+Inherits from the class Rectangle
 """
 
 
@@ -10,9 +11,32 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """
+    defines class Square that inherits from the
+    class Rectangle
+
+    Class Attributes:
+        size
+
+    Inherited Methods:
+        id
+
+    Methods:
+        __init(self, width, height, x=0, y=0, id=None)
+        __str__(self)
+        to_dictionary(self)
+        update(self, *args, **kwargs)
+
+    Inherited Getters:
+        width(self)     x(self)
+        height(self)    y (self)
+
+    Inherited Setters:
+        width(self, value)      x(self, value)
+        height(self, value)     y(self, value)
     """
     def __init__(self, size, x=0, y=0, id=None):
         """
+        initialize attributes
         """
         super().__init__(size, size, x, y, id)
         self.size = size

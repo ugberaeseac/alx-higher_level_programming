@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-
+Module: rectangle
+Subclass that inherts from superclass Base
 """
 
 from models.base import Base
@@ -9,6 +10,29 @@ from models.base import Base
 
 class Rectangle(Base):
     """
+    Class Attributes:
+        size
+
+    Inherited Methods:
+        Base.init(self, id=None)
+        Rectangle.init(self, width, height, x=0, y=0, id=None)
+        update(self, *args, **kwargs)
+        area(self)       display(self)
+
+    Methods:
+        __init(self, width, height, x=0, y=0, id=None)
+        __str__(self)
+        area(self)
+        to_dictionary(self)
+        update(self, *args, **kwargs)
+
+    Getters:
+        width(self)     x(self)
+        height(self)    y (self)
+
+    Setters:
+        width(self, value)      x(self, value)
+        height(self, value)     y(self, value)
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """
