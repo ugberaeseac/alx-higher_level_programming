@@ -10,7 +10,8 @@ Unittest for the subclass Rectangle class
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
-
+from io import StringIO
+import sys
 
 class TestRectangle(unittest.TestCase):
     """
@@ -162,3 +163,38 @@ class TestRectangle(unittest.TestCase):
 
         r1.update(y=1, width=2, x=3, id=89)
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 3/1 - 2/10")
+
+    def test_display(self):
+        """
+        # Test display() method without handling x and y
+        """
+        with StringIO() as output:
+            output = StringIO()
+            sys.stdout = output
+            r1 = Rectangle(2, 3).display()
+            sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "##\n##\n##\n")
+
+        with StringIO() as output:
+            output = StringIO()
+            sys.stdout = output
+            r1 = Rectangle(4, 4).display()
+            sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "####\n####\n####\n####\n")
+
+        """
+        # Test display () method handling x and y
+        """
+        with StringIO() as output:
+            output = StringIO()
+            sys.stdout = output
+            r1 = Rectangle(2, 3, 2, 2).display()
+            sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n  ##\n")
+
+        with StringIO() as output:
+            output = StringIO()
+            sys.stdout = output
+            r1 = Rectangle(3, 2, 3, 1).display()
+            sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "\n   ###\n   ###\n")

@@ -142,7 +142,9 @@ class Rectangle(Base):
         """
         Prints Rectangle instance to stdout with the character #
         """
+        print("\n" * self.y, end="")
         for rows in range(self.height):
+            print(" " * self.x, end="")
             for cols in range(self.width):
                 print("#", end="")
             print()
