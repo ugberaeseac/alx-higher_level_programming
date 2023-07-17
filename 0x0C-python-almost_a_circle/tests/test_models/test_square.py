@@ -195,3 +195,15 @@ class TestSquare(unittest.TestCase):
             s1 = Square(3, 2, 3, 1).display()
             sys.stdout = sys.__stdout__
         self.assertEqual(output.getvalue(), "\n\n\n  ###\n  ###\n  ###\n")
+
+    def test_to_dictionary_square(self):
+        """
+        # Test for dictionary representation
+        """
+        s1 = Square(6, 3, 2, 9)
+        s1.todictionary()
+        self.assertEqual(type(s1), dict)
+
+        s2 = Square(1, 3, 0, 1)
+        s2.update(**s1)
+        self.assertEqual(s2.__str__(), "[Square] (9) 3/2 - 6")

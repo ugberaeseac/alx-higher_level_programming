@@ -199,3 +199,15 @@ class TestRectangle(unittest.TestCase):
             r1 = Rectangle(3, 2, 3, 1).display()
             sys.stdout = sys.__stdout__
         self.assertEqual(output.getvalue(), "\n   ###\n   ###\n")
+
+    def test_to_dictionary(self):
+        """
+        # Test for dictionary representation
+        """
+        r1 = Rectangle(3, 4, 6, 2)
+        r1.todictionary()
+        self.assertEqual(type(r1), dict)
+
+        r2 = Rectangle(1, 3, 0, 1, 4)
+        r2.update(**r1)
+        self.assertEqual(r2.__str__(), "[Rectangle] (1) 6/2 - 3/4")
