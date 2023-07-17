@@ -55,9 +55,9 @@ class Base:
         """
         objs_list = []
         if list_objs is not None:
-            filename = cls.__name__ + ".json"
             for objs in list_objs:
                 objs_list.append(cls.to_dictionary(objs))
+        filename = cls.__name__ + ".json"
         with open(filename, mode='w', encoding='utf-8') as myFile:
             myFile.write(cls.to_json_string(objs_list))
 
@@ -67,7 +67,7 @@ class Base:
         Returns the list of the JSON string representation
         """
         if json_string is None or len(json_string) == 0:
-            return []
+            json_string = "[]"
         else:
             return (json.loads(json_string))
 
