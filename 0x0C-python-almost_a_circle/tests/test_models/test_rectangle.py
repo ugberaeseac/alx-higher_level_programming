@@ -3,7 +3,7 @@
 """
 Unittest for the subclass Rectangle class
 # To execute test, run  python3 -m unittest discover tests
-#To execute test, run python3 -m unittest tests/test_models/test_base.py
+# To execute test, run python3 -m unittest tests/test_models/test_rectangle.py
 """
 
 
@@ -12,6 +12,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from io import StringIO
 import sys
+
 
 class TestRectangle(unittest.TestCase):
     """
