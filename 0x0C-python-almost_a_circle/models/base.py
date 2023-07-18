@@ -97,7 +97,8 @@ class Base:
                 readFile = myFile.read()
                 objs = cls.from_json_string(readFile)
             for instance in objs:
-            a_list.append(cls.create(**instance))
-        except:
+                a_list.append(cls.create(**instance))
+
+        except (FileNotFoundError):
             pass
         return (a_list)
