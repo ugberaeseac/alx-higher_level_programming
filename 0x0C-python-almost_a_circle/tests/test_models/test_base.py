@@ -49,15 +49,18 @@ class TestBase(unittest.TestCase):
         dict1 = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
         dict2 = {'x': 5, 'y': 1, 'id': 35, 'height': 3, 'width': 6}
         json_dict = Base.to_json_string([dict1, dict2])
-        self.assertTrue(json_dict, [{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10}, {"x": 5, "y": 1, "id": 35, "height": 3, "width": 6}])
+        self.assertTrue(json_dict, [{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10},
+            {"x": 5, "y": 1, "id": 35, "height": 3, "width": 6}])
 
     def test_from_json_string(self):
         """
         # Test for JSON string to python dictionary object
         """
-        st = '[{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10}, {"x": 5, "y": 1, "id": 35, "height": 3, "width": 6}]'
+        st = '[{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10},
+        {"x": 5, "y": 1, "id": 35, "height": 3, "width": 6}]'
         st_json = Base.from_json_string(st)
-        self.assertTrue(st_json == [{'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}, {'x': 5, 'y': 1, 'id': 35, 'height': 3, 'width': 6}])
+        self.assertTrue(st_json == [{'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10},
+            {'x': 5, 'y': 1, 'id': 35, 'height': 3, 'width': 6}])
         self.assertTrue(type(st_json) == list)
 
         st1 = None
