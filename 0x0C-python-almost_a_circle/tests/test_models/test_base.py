@@ -10,6 +10,8 @@ Unittest for the Base class
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
+import os
 
 
 class TestBase(unittest.TestCase):
@@ -98,7 +100,7 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle.create(**r1_dict)
         self.assertEqual(r2.__str__(), '[Rectangle] (1) 1/0 - 3/5')
 
-    def load_from_file(self):
+    def test_load_from_file(self):
         """
         # Test to load JSON string to return a list of instances
         """
@@ -117,4 +119,10 @@ class TestBase(unittest.TestCase):
         s = Square(3, 1, 1, 8)
         Square.save_to_file([s])
         sq = Square.load_from_file()
-        self.assertEqual(sq__str__(), '[Square] (8) 1/1 - 3')
+        self.assertEqual(type(sq), list)
+
+        s0 = Square(3, 1, 1, 8)
+        Square.save_to_file([s0])
+        os.remove('Square.json')
+        sq0 = Square.load_from_file()
+        self.assertEqual(sq0, [])
