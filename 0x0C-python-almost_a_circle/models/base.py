@@ -58,7 +58,7 @@ class Base:
         if list_objs is not None or len(list_objs) == 0:
             for objs in list_objs:
                 objs_list.append(cls.to_dictionary(objs))
-        
+
         filename = cls.__name__ + "json"
         with open(filename, mode='w', encoding='utf-8') as myFile:
             myFile.write(cls.to_json_string(objs_list))
