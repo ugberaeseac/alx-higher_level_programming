@@ -56,8 +56,7 @@ class TestBase(unittest.TestCase):
         """
         # Test for JSON string to python dictionary object
         """
-        st = '[{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10},
-        {"x": 5, "y": 1, "id": 35, "height": 3, "width": 6}]'
+        st = '[{"x": 1, "y": 9, "id": 1, "height": 2, "width": 10}, {"x": 5, "y": 1, "id": 35, "height": 3, "width": 6}]'
         st_json = Base.from_json_string(st)
         self.assertTrue(st_json == [{'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10},
             {'x': 5, 'y': 1, 'id': 35, 'height': 3, 'width': 6}])
