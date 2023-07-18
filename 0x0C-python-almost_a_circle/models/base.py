@@ -55,7 +55,7 @@ class Base:
         """
         objs_list = []
 
-        if list_objs is not None:
+        if list_objs is not None or len(list_objs) == 0:
             for objs in list_objs:
                 objs_list.append(cls.to_dictionary(objs))
 
