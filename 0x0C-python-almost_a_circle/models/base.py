@@ -56,7 +56,7 @@ class Base:
         objs_list = []
         filename = cls.__name__ + ".json"
 
-        if list_objs is not None or len(objs_list) == 0:
+        if list_objs is not None or len(list_objs) == 0:
             for objs in list_objs:
                 objs_list.append(cls.to_dictionary(objs))
 
