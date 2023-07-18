@@ -92,9 +92,12 @@ class Base:
         a_list = []
         file_name = cls.__name__ + ".json"
 
-        with open(file_name, mode='r', encoding='utf-8') as myFile:
-            readFile = myFile.read()
-            objs = cls.from_json_string(readFile)
+        try:
+            with open(file_name, mode='r', encoding='utf-8') as myFile:
+                readFile = myFile.read()
+                objs = cls.from_json_string(readFile)
             for instance in objs:
-                a_list.append(cls.create(**instance))
+            a_list.append(cls.create(**instance))
+        except:
+            pass
         return (a_list)
