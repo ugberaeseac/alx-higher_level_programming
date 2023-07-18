@@ -54,7 +54,7 @@ class Base:
         writes the JSON string representation of a list of Base instance
         """
         objs_list = []
-        filename = cls.__name__ ".json"
+        filename = cls.__name__ + ".json"
 
         if list_objs is not None or len(objs_list) == 0:
             for objs in list_objs:
