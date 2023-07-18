@@ -70,7 +70,7 @@ class TestBase(unittest.TestCase):
 
     def save_to_file(self):
         """
-        # Test to write JSON string representation of a list 
+        # Test to write JSON string representation of a list
         of instances to a file
         """
         r1 = Rectangle.save_to_file(None)
@@ -116,4 +116,3 @@ class TestBase(unittest.TestCase):
         Square.save_to_file([s])
         sq = Square.load_from_file()
         self.assertEqual(sq__str__(), '[Square] (8) 1/1 - 3')
-

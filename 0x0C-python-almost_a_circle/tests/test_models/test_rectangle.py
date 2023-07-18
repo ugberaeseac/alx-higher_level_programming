@@ -102,6 +102,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(1, -1, 1, 1, 1)
             Rectangle(3, 0, 2, 0, 6)
+            Rectangle(4, 0)
 
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(1, 2, -4, 3, 9)
@@ -162,7 +163,7 @@ class TestRectangle(unittest.TestCase):
         r1.update(id=20)
         self.assertEqual(r1.__str__(), "[Rectangle] (20) 10/10 - 10/10")
 
-        r1.update(y=1, width=2, x=3, id=89)
+        r1.update(y=1, height=5, width=2, x=3, id=89)
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 3/1 - 2/10")
 
     def test_display(self):
