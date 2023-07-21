@@ -8,6 +8,7 @@ Contains the class attribute __nb_objects
 
 
 import json
+import csv
 
 
 class Base:
@@ -104,3 +105,37 @@ class Base:
         except (FileNotFoundError):
             pass
         return (a_list)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        save/serialize to csv file
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode='w', newline='') as csvFile:
+            csv_write = csv.writer(csvFile)
+
+            for row in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csv_write.writerow(
+                            [row.id, row.width, row.height, row.x, row.y])
+                if cls.__name__ == "Square":
+                    csv_write.writerow([row.id, row.size, row.x, row.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        list_objs = []
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'r', newline='') as csvFile:
+            csv_read = csv.reader(csvFile)
+            for row in csv_read:
+                if cls.__name__ == "Rectangle":
+                    dictt = {"id": int(row[0]), "width": int(row[1]),
+                            "height": int(row[2]), "x": int(row[3]),
+                            "y": int(row[4])}
+                if cls.__name__ == "Square":
+                    dictt = {"id": int(row[0]), "size": int(row[1]),
+                            "x": int(row[2]), "y": int(row[3])}
+                obj = cls.create(**dictt)
+                list_objs.append(obj)
+        return (list_objs)
