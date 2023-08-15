@@ -8,6 +8,7 @@ Contains the class attribute __nb_objects
 
 
 import json
+import csv
 
 
 class Base:
@@ -44,7 +45,7 @@ class Base:
         Returns the JSON string representation of list of dictionaries
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            list_dictionaries = []
+            return "[]"
         else:
             return json.dumps(list_dictionaries)
 
@@ -54,9 +55,11 @@ class Base:
         writes the JSON string representation of a list of Base instance
         """
         objs_list = []
+
         if list_objs is not None:
             for objs in list_objs:
                 objs_list.append(cls.to_dictionary(objs))
+
         filename = cls.__name__ + ".json"
         with open(filename, mode='w', encoding='utf-8') as myFile:
             myFile.write(cls.to_json_string(objs_list))
@@ -67,7 +70,7 @@ class Base:
         Returns the list of the JSON string representation
         """
         if json_string is None or len(json_string) == 0:
-            json_string = "[]"
+            return []
         else:
             return (json.loads(json_string))
 
@@ -92,9 +95,47 @@ class Base:
         a_list = []
         file_name = cls.__name__ + ".json"
 
-        with open(file_name, mode='r', encoding='utf-8') as myFile:
-            readFile = myFile.read()
-            objs = cls.from_json_string(readFile)
+        try:
+            with open(file_name, mode='r', encoding='utf-8') as myFile:
+                readFile = myFile.read()
+                objs = cls.from_json_string(readFile)
             for instance in objs:
                 a_list.append(cls.create(**instance))
+
+        except (FileNotFoundError):
+            pass
         return (a_list)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        save/serialize to csv file
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode='w', newline='') as csvFile:
+            csv_write = csv.writer(csvFile)
+
+            for row in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csv_write.writerow(
+                            [row.id, row.width, row.height, row.x, row.y])
+                if cls.__name__ == "Square":
+                    csv_write.writerow([row.id, row.size, row.x, row.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        list_objs = []
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'r', newline='') as csvFile:
+            csv_read = csv.reader(csvFile)
+            for row in csv_read:
+                if cls.__name__ == "Rectangle":
+                    dictt = {"id": int(row[0]), "width": int(row[1]),
+                            "height": int(row[2]), "x": int(row[3]),
+                            "y": int(row[4])}
+                if cls.__name__ == "Square":
+                    dictt = {"id": int(row[0]), "size": int(row[1]),
+                            "x": int(row[2]), "y": int(row[3])}
+                obj = cls.create(**dictt)
+                list_objs.append(obj)
+        return (list_objs)
