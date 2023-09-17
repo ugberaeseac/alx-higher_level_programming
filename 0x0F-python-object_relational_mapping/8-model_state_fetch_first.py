@@ -28,7 +28,6 @@ if __name__ == '__main__':
 
     queryData = session.query(State).order_by(State.id).first()
     if queryData:
-            print("{}: {}".format(queryData.id, queryData.name))
+        print("{}: {}".format(queryData.id, queryData.name))
     else:
-            print("Nothing")
-
+        print("Nothing")
