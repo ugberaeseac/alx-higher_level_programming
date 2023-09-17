@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 
 """
-prints the State object with the search name passed as argument
-takes 4 arguments: username, password and dbname and state to search
+adds the State object “Louisiana” to the database hbtn_0e_6_usa
+takes 3 arguments: mysql username, mysql password and database name
 imports State and Base from model_state
 connects to a MySQL server running on localhost at port 3306
 results sorted in ascending order by states.id
-print Not found if no state was found else print id
 """
 
 
@@ -20,15 +19,14 @@ if __name__ == '__main__':
     user = argv[1]
     passwd = argv[2]
     dbName = argv[3]
-    searchState = argv[4]
 
-    conn = "mysql+mysqldb://{}:{}@localhost/{}"
+    conn = "mysql+mysqldb://{}:{}@localhost:3306/{}"
     engine = create_engine(conn.format(user, passwd, dbName))
     Session = sessionmaker(bind=engine)
     session = Session()
+    newState = State(name='Louisiana')
+    session.add(newState)
+    session.commit()
 
-    queryData = session.query(State).filter_by(name=searchState).first()
-    if queryData:
-        print("{}".format(queryData.id))
-    else:
-        print("Not found")
+    queryData = session.query(State).filter_by(name="Louisiana").first()
+    print("{}".format(queryData.id))
