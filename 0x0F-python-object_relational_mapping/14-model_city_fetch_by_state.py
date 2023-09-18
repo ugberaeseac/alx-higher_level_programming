@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
 """
-script that lists all State objects from the database hbtn_0e_6_usa
 takes 3 arguments: mysql username, mysql password and database name
 imports State and Base from model_state
+imports City from models_city
 connects to a MySQL server running on localhost at port 3306
-results sorted in ascending order by states.id
 """
 
 
