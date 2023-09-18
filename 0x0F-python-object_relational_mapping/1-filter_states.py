@@ -24,6 +24,7 @@ if __name__ == '__main__':
     queryRows = cursor.fetchall()
 
     for rows in queryRows:
-        print(rows)
+        if (rows[1][0] == 'N'):
+            print(rows)
     cursor.close()
     dBase.close()
