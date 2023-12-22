@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-given the URL and email, sends a request to the URL and displays the value of the variable 
+given the URL and email, sends a request to the
+URL and displays the value of the variable
 """
 import requests
 from sys import argv

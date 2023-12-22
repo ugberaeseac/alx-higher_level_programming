@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-given the URL and email, print error code 
+given the URL and email, print error code
 """
 import requests
 from sys import argv
